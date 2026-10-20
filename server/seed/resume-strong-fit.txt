@@ -1,0 +1,27 @@
+Name: Ayesha Khan
+Email: ayesha.khan.demo@example.com
+Location: Karachi, Pakistan (open to remote)
+
+Professional Summary
+Senior Frontend Engineer with 5 years of experience building React and TypeScript applications at scale. Led dashboard rebuilds for fintech clients and care deeply about performance, testing, and clean API contracts.
+
+Experience
+
+Senior Frontend Engineer - PayFlow Systems, Karachi (2022 - present)
+- Own the merchant settlement dashboard used by 40+ partner banks, built with React, TypeScript, Next.js, and Tailwind CSS.
+- Cut dashboard load time from 4.2s to 1.1s via code splitting, virtualization, and React Query caching; Core Web Vitals all green.
+- Led migration from Redux to Zustand across 60k lines of code with zero regressions; wrote the codemod tooling.
+- Built the design system (40+ components) with Storybook; adopted by three product teams.
+- Set up CI/CD with GitHub Actions and Docker; Playwright E2E suite covering critical payment flows.
+- Mentor two junior engineers; run weekly frontend guild.
+
+Frontend Engineer - TechNova Solutions, Karachi (2020 - 2022)
+- Built customer-facing analytics dashboards in React and TypeScript; integrated REST APIs and GraphQL endpoints.
+- Implemented Recharts-based data visualizations for transaction reporting.
+- Wrote Jest and React Testing Library suites; raised coverage from 35% to 82%.
+
+Skills
+React, TypeScript, JavaScript, Next.js, Redux, Zustand, Tailwind CSS, HTML, CSS, REST APIs, GraphQL, Jest, React Testing Library, Playwright, GitHub Actions, CI/CD, Docker, Git, Recharts, PostgreSQL basics.
+
+Education
+BS Software Engineering, fictional university, Karachi (2016 - 2020).
