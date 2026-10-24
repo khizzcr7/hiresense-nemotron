@@ -1,0 +1,24 @@
+Name: Daniyal Sheikh
+Email: daniyal.sheikh.demo@example.com
+Location: Lahore, Pakistan (open to remote)
+
+Professional Summary
+Backend-leaning software engineer with 2 years of experience building APIs and data pipelines in Python. Interested in moving toward frontend development.
+
+Experience
+
+Software Engineer - DataBridge Analytics, Lahore (2023 - present)
+- Build ETL pipelines in Python and Django processing daily transaction feeds.
+- Maintain internal admin tools; basic HTML/CSS templates.
+- Write PostgreSQL queries and manage MongoDB collections.
+- Deployed services with Docker; Git for version control.
+
+Junior Developer - WebCraft Studio, Lahore (2022 - 2023)
+- Built WordPress sites and small PHP landing pages for local clients.
+- Basic JavaScript for form validation and sliders.
+
+Skills
+Python, Django, PostgreSQL, MongoDB, Docker, Git, HTML, CSS, basic JavaScript.
+
+Education
+BS Computer Science, fictional university, Lahore (2018 - 2022).
