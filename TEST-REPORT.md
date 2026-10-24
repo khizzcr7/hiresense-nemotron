@@ -29,6 +29,32 @@ deterministic providers.
 | 12 | Client dev server | GET / and GET /api/health via :5173 | PASS. Serves index.html; /api proxy reaches the server. |
 | 13 | Client build | `npm run build` | PASS. dist/ emitted, no TS errors. |
 
+## Re-verification run - 2026-10-24
+
+All 13 smoke tests above were independently re-run against the current tree
+(demo mode, zero env vars) and PASS again:
+
+- Server boots clean on a fresh port; /api/health and /api/test correct.
+- /api/match discriminates (strong-fit seed clearly outscores weak-fit seed);
+  absolute scores vary with the exact job text passed, as expected from the
+  deterministic scorer. Agent scores reproduce exactly: strong 92/100,
+  weak 36/100, 12 events, 7 interview questions.
+- /api/agent/screen SSE mode streams 14 events in the documented order,
+  ending with result + complete.
+- /api/analyze parses a real resume PDF and returns Markdown feedback;
+  both 400 error paths (match, agent, analyze) return the documented errors.
+- Client: `npm run build` clean (197 modules), `npx tsc --noEmit` clean,
+  Vite dev server serves the app and proxies /api to the server.
+- No code changes were needed; nothing was broken.
+
+Repo state note (2026-10-24): the public GitHub repo
+(khizzcr7/hiresense-nemotron) holds 25 of the 29 source files. The 4 files
+missing from the remote - `client/src/components.tsx` (imported by App,
+agent and views, so the remote tree cannot build without it),
+`client/tsconfig.json`, `client/package-lock.json` and
+`server/seed/resume-weak-fit.txt` - are in the staged upload set and must be
+added before deploying from the repo.
+
 ## Notes
 
 - Demo scoring is deterministic and discriminates: strong-fit seed scores

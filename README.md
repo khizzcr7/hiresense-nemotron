@@ -9,6 +9,11 @@ resume feedback tool). During the hackathon it was substantially rebuilt: the LL
 was ported to Nemotron on Nebius, and a brand-new agentic screening pipeline with live
 company research was added. See "Significantly updated during the hackathon" below.
 
+- **Repository:** https://github.com/khizzcr7/hiresense-nemotron
+- **Live demo:** linked from the Devpost submission (Vercel deployment of this repo).
+- **Demo video:** linked from the Devpost submission (under 3 minutes, shows the
+  agent pipeline running end to end).
+
 ## What it does
 
 - **Agent Pipeline (new):** paste a job description and a resume, and the agent runs a
@@ -129,15 +134,26 @@ Set `VITE_API_URL` at build time to point the client at a deployed API.
 
 Every response includes a `provider` field (`"nebius"` or `"demo"`).
 
-## Deployment notes
+## Deployment (Vercel)
 
-Deployment config is handled by the release coordinator. Notes for that step:
+The repo ships `vercel.json` and `api/index.js` so the Express server runs as a
+Vercel serverless function and the built client is served from the same origin
+(no CORS, no separate API host):
 
-- `client/` builds with `npm run build` into `dist/`.
-- `server/` starts with `npm start` (reads `PORT` from env).
-- Required env on the server host: `NEBIUS_API_KEY`; optional: `TAVILY_API_KEY`,
-  `NEMOTRON_REASONING_MODEL`, `NEMOTRON_FAST_MODEL`, `NEBIUS_BASE_URL`.
-- For a static-hosted client, build with `VITE_API_URL` set to the API origin.
+1. Build the client: `cd client && npm install && npm run build` (outputs `dist/`).
+2. Deploy a project root containing the contents of `client/dist/`, the `api/`
+   folder, `vercel.json`, and the `server/` code. The rewrite in `vercel.json`
+   sends `/api/*` to the serverless function (60s max duration, enough for a
+   full agent run).
+3. Set env vars on the project: `NEBIUS_API_KEY` (required for live Nemotron
+   inference), `TAVILY_API_KEY` (optional, live research), and optionally
+   `NEMOTRON_REASONING_MODEL`, `NEMOTRON_FAST_MODEL`, `NEBIUS_BASE_URL`.
+4. Alternatively, host the two halves separately: `server/` runs anywhere with
+   `npm start` (reads `PORT`), and the client can be built with `VITE_API_URL`
+   pointing at the API origin.
+
+With no keys set, the deployed app still runs end to end in demo mode, with the
+provider badge honestly showing "demo".
 
 ## Significantly updated during the hackathon (Oct 2026)
 
